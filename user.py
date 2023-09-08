@@ -30,4 +30,9 @@ def change_num(name,num):
             ws.cell(row=r,column=2,value=num)
             wb.save('userDB.xlsx')
 
-            
+def numreset():
+    for r in range(2,ws.max_row+1):
+        ws.cell(row=r,column=2,value=1)
+    wb.save('userDB.xlsx')     
+
+numreset()
