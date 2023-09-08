@@ -70,6 +70,11 @@ async def on_ready():
 async def hello(ctx: discord.interactions.Interaction):
     await ctx.response.send_message('Hello I am Bot!')
 
+@bot.tree.command(name='문제리셋',description='유저가 푼 문제 초기화')
+async def 문제리셋(ctx: discord.interactions.Interaction):
+    user.numreset()
+    await ctx.response.send_message('해결한 문제 초기화 완료')    
+
 @bot.tree.command(name='유저목록', description='유저 목록을 보여줍니다')
 async def 유저목록(ctx: discord.interactions.Interaction):
     userid = user.userlist()
