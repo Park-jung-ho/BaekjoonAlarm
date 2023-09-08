@@ -45,8 +45,9 @@ def get_tier_img(pid):
     res = conn.getresponse()
     data = res.read()
     print(4)
-    solved = json.loads(data.decode("utf-8"))
+    solved = json.loads(data)
     print(5)
     lv = int(solved.get("level"))
     print(6)
     return Lvimg[lv]
+get_tier_img(1000)
