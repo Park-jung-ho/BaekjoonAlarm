@@ -46,7 +46,8 @@ def get_tier_img(pid):
     data = res.read()
     print(4)
     print(data)
-    data = json.loads(data,strict=False)
+    data = json.loads(data.decode("utf-8"),strict=False)
+    print(data)
     
     print(5)
     lv = int(data.get("level"))
