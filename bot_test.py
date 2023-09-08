@@ -40,11 +40,8 @@ async def alarm_60():
                 print(id,user.user_num(id))
                 if user.user_num(id) != num:
                     user.change_num(id,num)
-                    print("t1")
                     embed=discord.Embed(title=name, url=link, description=num+"번", color=0x00ff40)
-                    print("t2")
                     embed.set_author(name="맞았습니다!")
-                    print("t3")
                     tierlink = tier_image.get_tier_img(num)
                     print("t4")
                     embed.set_thumbnail(url=tierlink)

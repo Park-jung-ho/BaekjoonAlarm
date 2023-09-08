@@ -37,15 +37,16 @@ Lvimg = ['https://ifh.cc/g/LQJ8Cl.png',
 
 def get_tier_img(pid):
     conn = http.client.HTTPSConnection("solved.ac")
-
+    print(1)
     headers = { 'Accept': "application/json" }
-
+    print(2)
     conn.request("GET", "/api/v3/problem/show?problemId={}".format(pid), headers=headers)
-
+    print(3)
     res = conn.getresponse()
     data = res.read()
-
+    print(4)
     solved = json.loads(data.decode("utf-8"))
+    print(5)
     lv = int(solved.get("level"))
-    
+    print(6)
     return Lvimg[lv]
