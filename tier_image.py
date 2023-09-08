@@ -45,7 +45,7 @@ def get_tier_img(pid):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    print(response.json()["level"])
+    print(response.json())
     lv = response.json()["level"]
     # conn = http.client.HTTPSConnection("solved.ac")
     # print(1)
