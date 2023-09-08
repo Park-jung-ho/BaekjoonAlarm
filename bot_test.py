@@ -17,7 +17,7 @@ intents.message_content = True
 bot = commands.Bot(command_prefix='/',intents=intents)
 headers = {'User-Agent':'Mozilla/5.0'}
 
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=30)
 async def alarm_60():
     cnt = 1
     while True:
@@ -46,12 +46,13 @@ async def alarm_60():
                     embed.set_thumbnail(url=tierlink)
                     # embed.set_thumbnail(url='https://ifh.cc/g/d2Wssy.png')
                     embed.add_field(name="제출한 사람", value="["+id+"](https://www.acmicpc.net/user/"+id+")", inline=False)
+                    print("embed")
                     await bot.get_guild(guild_id).get_channel(channel_id).send(embed=embed)
             except Exception as e:
                 print("알람 에러")
                 print(e)
                 continue   
-        await asyncio.sleep(60)
+        await asyncio.sleep(30)
 
 @bot.event
 async def on_ready():
