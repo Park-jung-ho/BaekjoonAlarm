@@ -45,7 +45,9 @@ async def alarm_60():
                     # embed.set_thumbnail(url='https://ifh.cc/g/d2Wssy.png')
                     embed.add_field(name="제출한 사람", value="["+id+"](https://www.acmicpc.net/user/"+id+")", inline=False)
                     await bot.get_guild(guild_id).get_channel(channel_id).send(embed=embed)
-            except:
+            except Exception as e:
+                print("알람 에러")
+                print(e)
                 continue   
         await asyncio.sleep(60)
 
