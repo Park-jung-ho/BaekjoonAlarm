@@ -46,10 +46,10 @@ def get_tier_img(pid):
     data = res.read()
     print(4)
     print(data)
-    solved = json.loads(data,strict=False)
+    data = json.loads(data,strict=False)
     
     print(5)
-    lv = int(solved.get("level"))
+    lv = int(data.get("level"))
     print(6)
     return Lvimg[lv]
 print(get_tier_img(1000))
