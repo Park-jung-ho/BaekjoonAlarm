@@ -37,8 +37,8 @@ async def alarm_60():
                 name = a[2].find('a')['title']
                 num = a[2].text
                 link = 'https://www.acmicpc.net/problem/'+num
+                print(id,user.user_num(id))
                 if user.user_num(id) != num:
-                    print(id,"알람실행")
                     user.change_num(id,num)
                     embed=discord.Embed(title=name, url=link, description=num+"번", color=0x00ff40)
                     embed.set_author(name="맞았습니다!")
