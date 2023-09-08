@@ -2,6 +2,7 @@
 # svg to png : https://svgtopng.com/ko/
 import http.client
 import json
+import requests
 
 Lvimg = ['https://ifh.cc/g/LQJ8Cl.png',
          'https://ifh.cc/g/FT8wxt.png',
@@ -36,21 +37,31 @@ Lvimg = ['https://ifh.cc/g/LQJ8Cl.png',
          'https://ifh.cc/g/fxHXjy.png']
 
 def get_tier_img(pid):
-    conn = http.client.HTTPSConnection("solved.ac")
-    print(1)
-    headers = { 'Accept': "application/json" }
-    print(2)
-    conn.request("GET", "/api/v3/problem/show?problemId={}".format(pid), headers=headers)
-    print(3)
-    res = conn.getresponse()
-    data = res.read()
-    print(4)
-    print(data)
-    data = json.loads(data.decode("utf-8"),strict=False)
-    print(data)
+    url = "https://solved.ac/api/v3/problem/show"
+
+    querystring = {"problemId":pid}
+
+    headers = {"Accept": "application/json"}
+
+    response = requests.get(url, headers=headers, params=querystring)
+
+    print(response.json()["level"])
+    lv = response.json()["level"]
+    # conn = http.client.HTTPSConnection("solved.ac")
+    # print(1)
+    # headers = { 'Accept': "application/json" }
+    # print(2)
+    # conn.request("GET", "/api/v3/problem/show?problemId={}".format(pid), headers=headers)
+    # print(3)
+    # res = conn.getresponse()
+    # data = res.read()
+    # print(4)
+    # print(data)
+    # data = json.loads(data.decode("utf-8"),strict=False)
+    # print(data)
     
-    print(5)
-    lv = int(data.get("level"))
-    print(6)
+    # print(5)
+    # lv = int(data.get("level"))
+    # print(6)
     return Lvimg[lv]
-print(get_tier_img(1000))
+print(get_tier_img(27449))
