@@ -24,6 +24,7 @@ async def alarm_60():
         print('\r알람 {}회 실행'.format(cnt), end="")
         cnt+=1
         userid = user.userlist()
+        print(userid)
         for id in userid:
             try:
                 find_url = "https://www.acmicpc.net/status?problem_id=&user_id="+id+"&language_id=-1&result_id=4"
