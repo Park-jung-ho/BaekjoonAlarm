@@ -1,4 +1,3 @@
-import os
 from openpyxl import load_workbook, Workbook
 
 wb = load_workbook('userDB.xlsx')
